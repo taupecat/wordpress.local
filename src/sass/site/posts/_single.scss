@@ -1,0 +1,206 @@
+.single-post-content {
+	@extend %max-width;
+	font-size: em( 16px );
+
+	&__wrapper {
+		@extend %max-width--padded;
+	}
+
+	&__header {
+		margin: {
+			top: 3rem;
+			bottom: 2rem;
+		}
+	}
+
+	&__title {
+		@extend %roboto-thin;
+		font-size: em( 28px );
+		line-height: 1;
+
+		@include breakpoint( bp() ) {
+			font-size: em( 40px );
+		}
+	}
+
+	&__date {
+		@extend %roboto-medium;
+		color: mix( white, color( 'black' ), 50% );
+		margin: {
+			top: 0.5em;
+			bottom: 0.5em;
+		}
+	}
+
+	&__featured-image {
+		margin-bottom: 2rem;
+
+		@include breakpoint( bp() ) {
+			overflow: hidden;
+			@include aspect-ratio( 8, 3 );
+		}
+
+		img {
+			height: auto;
+			width: 100%;
+
+			@include breakpoint( bp() ) {
+				@include centered("vertical");
+			}
+		}
+	}
+
+	&__content {
+		@extend %max-width--blog;
+		margin-bottom: 2em;
+
+		h2:first-child {
+			margin-bottom: 1em;
+		}
+	}
+
+	p {
+		margin: {
+			top: 1em;
+			bottom: 1em;
+		}
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	h2 {
+		font-weight: $font-weight__medium;
+	}
+
+	// Unordered Lists
+	// 
+	// `site/posts/_single.scss`
+	// 
+	// Default ul (inside `.single-post-content`).
+	// 
+	// Markup:
+	// <div class="single-post-content">
+	//     <ul>
+	//         <li>List item one.</li>
+	//         <li>List item two.</li>
+	//     </ul>
+	// </div>
+	// 
+	// Styleguide Typography.Lists.Unordered
+
+	ul:not(.social, .single-blog__comments__list) {
+		list-style: square;
+		margin: 0 0 2em 1em;
+	}
+
+	// .quotations
+	// 
+	// `site/posts/_single.scss`
+	// 
+	// Default ol (inside `.single-post-content`).
+	// 
+	// Markup:
+	// <div class="single-post-content">
+	//     <div class="quotations">
+	//         <ul class="quotations__quote-block">
+	//             <li class="quotations__quote">Ruby is for hipsters.</li>
+	//         </ul>
+	//         <div class="quotations__attribution">Kurt P. Roberts</div>
+	//     </div>
+	// </div>
+	// 
+	// Styleguide Typography.Lists.Quotations
+
+	.quotations {
+		border: 1px solid color( 'gray--light' );
+		margin-bottom: 2em;
+		padding: 1em;
+
+		&__quote {
+			@extend %quote;
+			margin: 1em 0 0 1em;
+		}
+
+		&__quote-block {
+			list-style: none;
+			margin: 0 0 2em;
+			z-index: 0;
+		}
+
+		&__attribution {
+			@extend h2;
+		}
+	}
+
+	// Blockquote
+	// 
+	// `site/posts/_single.scss`
+	// 
+	// Default blockquote (inside `.single-post-content`).
+	// 
+	// Markup:
+	// <div class="single-post-content">
+	//     <blockquote>
+	//         <p>You can have my hard "G" when you pry it from my cold, dead hands.</p>
+	//     </blockquote>
+	// </div>
+	// 
+	// Styleguide Typography.Lists.Blockquote
+
+	blockquote {
+		border-left: 3px solid;
+		color: color( 'blue' );
+		font: {
+			size: rem( 16px );
+			style: italic;
+		}
+		margin: 1.5em 1.5em 1.5em 0;
+		padding-left: 1.5em;
+	}
+
+	ul {
+		list-style-type: square;
+		margin: {
+			top: 1em;
+			bottom: 1em;
+			left: 1em;
+		}
+
+		li {
+			margin: {
+				top: 1em;
+				bottom: 1em;
+			}
+		}
+	}
+
+	/** Careers */
+
+	&--careers {
+		@extend %max-width--blog;
+
+		&__subsection {
+			margin-bottom: 2em;
+
+			ul {
+				list-style-type: square;
+				margin-left: 1em;
+			}
+		}
+
+		&__subhead {
+			@extend %roboto-medium;
+			border-bottom: 1px solid color( 'gray' );
+			font-size: em( 14px );
+			margin-bottom: 0.5em;
+			padding-bottom: 0.25em;
+			text-transform: uppercase;
+		}
+
+		&--boilerplate {
+			margin-bottom: 4rem;
+		}
+	}
+}

@@ -1,0 +1,236 @@
+.work {
+	@extend %max-width;
+
+	&__set {
+		@extend %max-width--padded;
+	}
+
+	&__link,
+	&__image {
+		height: 100%;
+	}
+
+	&__full {
+		overflow: hidden;
+		position: relative;
+
+		@include breakpoint( bp() ) {
+			height: rem( 450px );
+		}
+
+		img {
+
+			@include breakpoint( bp() ) {
+				height: 100%;
+				max-width: none;
+				width: auto;
+				@include centered( "horizontal" );
+			}
+		}
+	}
+
+	&__half {
+		overflow: hidden;
+		position: relative;
+
+		@include breakpoint( bp() ) {
+			width: 50%;
+		}
+
+		img {
+
+			@include breakpoint( bp() ) {
+				height: 100%;
+				max-width: none;
+				width: auto;
+				@include centered( "horizontal" );
+			}
+		}
+	}
+
+	&__quarter {
+		overflow: hidden;
+		position: absolute;
+
+		img {
+			height: 100%;
+			max-width: none;
+			width: auto;
+			@include centered( "horizontal" );
+
+			@include breakpoint( 644px ) {
+				height: auto;
+				width: 100%;
+				@include centered( "both" );
+			}
+
+			@include breakpoint( bp( "intermediate" ) ) {
+				height: 100%;
+				top: 0;
+				width: auto;
+				@include centered( "horizontal" );
+			}
+		}
+	}
+
+
+	/* ==========================================================================
+	   Layout
+	   ========================================================================== */
+
+	// Default: Half, Quarter, Quarter
+
+	&__set__row {
+
+		@include breakpoint( bp() ) {
+			display: flex;
+			height: rem( 450px );
+		}
+
+		&__quarters {
+			min-height: rem( 240px );
+			position: relative;
+			@include aspect-ratio( 320px, 240px );
+
+			@include breakpoint( bp() ) {
+				display: block;
+				width: 50%;
+			}
+		}
+
+		.work__quarter {
+
+			&:nth-child(1) {
+				top: 0;
+				right: 0;
+				bottom: 50%;
+				left: 50%;
+
+				@include breakpoint( bp() ) {
+					left: 0;
+				}
+
+				@include breakpoint( bp("intermediate") ) {
+					left: 50%;
+				}
+			}
+
+			&:nth-child(2) {
+				top: 50%;
+				right: 50%;
+				bottom: 0;
+				left: 0;
+
+				@include breakpoint( bp() ) {
+					right: 0;
+				}
+
+				@include breakpoint( bp("intermediate") ) {
+					right: 50%;
+				}
+			}
+		}
+	}
+
+	// Alternate: Quarter, Quarter, Half
+
+	&__set:nth-of-type(even) {
+
+		.work__set__row {
+			flex-direction: row-reverse;
+		}
+
+		.work__quarter {
+
+			&:nth-child(1) {
+				right: 50%;
+				left: 0;
+
+				@include breakpoint( bp() ) {
+					right: 0;
+				}
+
+				@include breakpoint( bp("intermediate") ) {
+					right: 50%;
+				}
+			}
+
+			&:nth-child(2) {
+				right: 0;
+				left: 50%;
+
+				@include breakpoint( bp() ) {
+					left: 0;
+				}
+
+				@include breakpoint( bp("intermediate") ) {
+					left: 50%;
+				}
+			}
+		}
+	}
+
+	// Work Entry Headline
+	//
+	// Dark text on a semi-transparent white overlay on a large image. The whole image and headline are linked
+	// to the case study, and the image is presented using the responsive <picture> element.
+	//
+	// The content of the headline varies according to its place on the website, but generally includes the
+	// name of the case study (or some variation on the "Building" theme) and the name of the client.
+	//
+	// Markup:
+	// <div class="work__full scroll-effect effect-ease-up">
+	//     <a href="#!" class="work__link block scroll-effect-target">
+	//         <div class="work__image work__image--full">
+	//             <picture>
+	//                 <source srcset="https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-1200x450.jpg, https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY.jpg 2x" media="(min-width: 37.5rem)" />
+	//                 <source srcset="https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-600x450.jpg, https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-1200x900.jpg 2x" media="(min-width: 20.0625rem)" />
+	//                 <source srcset="https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-320x240.jpg, https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-640x480.jpg 2x" />
+	//                 <img srcset="https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-320x240.jpg, https://dugi6qw32tvb0.cloudfront.net/wp-content/uploads/2015/09/17090604/NS_NATS-BUSY-640x480.jpg 2x" />
+	//             </picture>
+	//         </div>
+	//         <div class="work__content headline">
+	//             <div class="headline__container">
+	//                 <h1 class="work__title headline__title">Game Central</h1>
+	//                 <div class="work__client headline__client">for <b>Norfolk Southern</b></div>
+	//             </div>
+	//         </div>
+	//      </a>
+	// </div>
+	//
+	// Styleguide: Images.Overlay
+
+	&__content {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: percentage( 2 / 3 );
+
+		@include breakpoint( 400px ) {
+			top: 75%;
+		}
+
+		@include breakpoint( bp() ) {
+
+			.work__full & {
+				right: 50%;
+			}
+		}
+
+		@include breakpoint( bp( "large" ) ) {
+
+			.work__full & {
+				right: 75%;
+			}
+
+			.work__half & {
+				right: 50%;
+			}
+		}
+	}
+
+	&__client {
+		line-height: 1.3;
+	}
+}

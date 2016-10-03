@@ -1,0 +1,162 @@
+.checker-block {
+	@extend %max-width;
+	background-color: color( 'gray--light' );
+	height: rem(600px);
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
+	&__inner {
+		height: rem(600px);
+		position: absolute;
+		width: rem(1200px);
+		@include centered( "horizontal" );
+	}
+
+	&__block {
+		height: rem(150px);
+		position: absolute;
+		width: rem(200px);
+
+		/** Agency */
+
+		.checker-block--agency &--01 {
+			height: rem(300px);
+			left: rem(400px);
+			width: rem(400px);
+		}
+
+		.checker-block--agency &--02 {
+			left: rem(1000px);
+		}
+
+		.checker-block--agency &--03 {
+			top: rem(150px);
+		}
+
+		.checker-block--agency &--04 {
+			left: rem(800px);
+			top: rem(150px);
+		}
+
+		.checker-block--agency &--05 {
+			top: rem(300px);
+			width: rem(400px);
+		}
+
+		.checker-block--agency &--06 {
+			left: rem(600px);
+			top: rem(300px);
+		}
+
+		.checker-block--agency &--07 {
+			left: rem(200px);
+			top: rem(450px);
+		}
+
+		.checker-block--agency &--08 {
+			left: rem(800px);
+			top: rem(450px);
+			width: rem(400px);
+		}
+
+		.checker-block--agency &--blue-01 {
+			background-color: color( 'blue' );
+			left: rem(200px);
+			top: rem(150px);
+		}
+
+		.checker-block--agency &--blue-02 {
+			background-color: color( 'blue' );
+			left: rem(1000px);
+			top: rem(150px);
+		}
+
+		.checker-block--agency &--magenta {
+			background-color: color( 'magenta' );
+			left: rem(400px);
+			top: rem(300px);
+		}
+
+		/** Careers */
+
+		.checker-block--careers &--01 {
+			height: rem(300px);
+			left: rem(400px);
+			width: rem(400px);
+		}
+
+		.checker-block--careers &--02 {
+			left: rem(1000px);
+		}
+
+		.checker-block--careers &--03 {
+			top: rem(150px);
+		}
+
+		.checker-block--careers &--04 {
+			left: rem(800px);
+			top: rem(150px);
+		}
+
+		.checker-block--careers &--05 {
+			left: rem(1000px);
+			top: rem(150px);
+		}
+
+		.checker-block--careers &--06 {
+			top: rem(300px);
+		}
+
+		.checker-block--careers &--07 {
+			left: rem(200px);
+			top: rem(300px);
+		}
+
+		.checker-block--careers &--08 {
+			left: rem(400px);
+			top: rem(300px);
+		}
+
+		.checker-block--careers &--09 {
+			left: rem(600px);
+			top: rem(300px);
+		}
+
+		.checker-block--careers &--10 {
+			left: rem(200px);
+			top: rem(450px);
+		}
+
+		.checker-block--careers &--11 {
+			left: rem(800px);
+			top: rem(450px);
+		}
+
+		.checker-block--careers &--12 {
+			left: rem(1000px);
+			top: rem(450px);
+		}
+
+		.checker-block--careers &--blue-01 {
+			background-color: color( 'blue' );
+			top: rem(450px);
+		}
+
+		.checker-block--careers &--blue-02 {
+			background-color: color( 'blue' );
+			left: rem(800px);
+		}
+
+		.checker-block--careers &--magenta-01 {
+			background-color: color( 'magenta' );
+			width: rem(400px);
+		}
+
+		.checker-block--careers &--magenta-02 {
+			background-color: color( 'magenta' );
+			left: rem(1000px);
+			top: rem(300px);
+		}
+	}
+}

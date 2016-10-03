@@ -1,0 +1,21 @@
+# Distribution directory
+dist
+
+# NPM
+node_modules
+npm-debug.log
+
+# Vagrant
+.vagrant
+
+# Composer
+vendor
+!src/js/vendor
+.composer
+
+# Modernizr
+src/js/vendor/modernizr.js
+
+# Miscellaneous
+*.bak
+assets

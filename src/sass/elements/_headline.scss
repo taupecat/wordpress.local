@@ -1,0 +1,23 @@
+.headline {
+	background-color: transparentize( color( 'white' ), 0.1 );
+	font-size: rem( 14px );
+	line-height: 1;
+	padding: 1em;
+
+	@include breakpoint( bp() ) {
+		font-size: rem( 16px );
+	}
+
+	&__title {
+		@extend %roboto-thin;
+		font-size: em( 20px );
+		margin-bottom: 0.25em;
+	}
+
+	// Vertical centering
+
+	&__container {
+		width: calc( 100% - 2em );
+		@include centered( "vertical" );
+	}
+}

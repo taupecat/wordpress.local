@@ -1,0 +1,45 @@
+.single-blog__related {
+	@extend %max-width--blog;
+	display: flex;
+	margin-bottom: 3em;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+
+	&__post {
+		background-color: color( 'blue' );
+		margin-right: gutter();
+		min-width: ( 320px * 0.8 );
+		overflow: hidden;
+
+		@include breakpoint( bp() ) {
+			min-width: 0;
+			width: span(8);
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&__featured-image {
+			@include aspect-ratio( 4, 3 );
+
+			img {
+				height: 100%;
+				max-width: none;
+				width: auto;
+				@include centered( "both" );
+			}
+		}
+
+		&__label {
+			color: color( 'white' );
+			line-height: 1.5;
+			padding: 1em;
+		}
+	}
+
+	// Make sure the fallback image fills the space
+	img[src*="blog-fallback-image.jpg"] {
+		width: 100%;
+	}
+}

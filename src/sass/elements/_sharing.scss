@@ -1,0 +1,88 @@
+/** Sharing Widget */
+div.sharedaddy {
+
+	h3.sd-title {
+		display: block;
+		font: {
+			size: rem(16px);
+			weight: 500;
+		}
+		margin-top: 2em;
+
+		&::before {
+			content: none;
+		}
+	}
+}
+
+.sd-social-icon .sd-content ul {
+
+	li[class*='share-'] a {
+		border-radius: 0 !important;
+		height: rem(34px) !important;
+		width: rem(37px) !important;
+
+		&::before {
+			bottom: 0;
+			font-family: Genericons;
+			left: 0;
+			line-height: rem(34px);
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	/* ==========================================================================
+	   Copy Permalink
+	   ========================================================================== */
+
+	li[class*='share-'].share-link a.sd-button {
+		background-color: color( 'blue' );
+		color: color( 'white' ) !important;
+	}
+
+	li.share-link {
+		position: relative;
+
+		&::after {
+			@extend %roboto-medium;
+			background-color: color( 'black' );
+			color: color( 'white' );
+			content: "Copied Permalink";
+			display: block;
+			font-size: rem(12px);
+			line-height: 1;
+			opacity: 0;
+			padding: 5px;
+			position: absolute;
+			right: 5px;
+			text-transform: uppercase;
+			transition: opacity 5s;
+			white-space: nowrap;
+		}
+
+		&.tt--open::after {
+			opacity: 1;
+		}
+
+		&.tt--close::after {
+			opacity: 0;
+		}
+
+		&.tt--failure::after {
+			content: "CMD-C to Copy Permalink";
+		}
+
+		& a::before {
+			content: "\f107";
+			font: {
+				family: Genericons;
+				size: 28px;
+			}
+		}
+	}
+}
+
+li.share-link {
+	list-style-type: none;
+}

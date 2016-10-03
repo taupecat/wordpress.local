@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/live/
+permissions:
+  - object: /
+    owner: www-data
+    group: www-data
+hooks:
+  ApplicationStop:
+    - location: scripts/deregister_from_elb.sh
+  BeforeInstall:
+    - location: scripts/beforeInstall.bash
+  AfterInstall:
+    - location: scripts/afterInstall.bash
+  ApplicationStart:
+    - location: scripts/register_with_elb.sh

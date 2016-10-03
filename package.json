@@ -1,0 +1,59 @@
+{
+  "name": "rp3-site",
+  "title": "RP3 Agency Website",
+  "url": "rp3agency.com",
+  "contributors": [
+    {
+      "name": "Tracy Rotton",
+      "email": "trotton@rp3agency.com"
+    },
+    {
+      "name": "Brian Watson",
+      "email": "bwatson@rp3agency.com"
+    },
+    {
+      "name": "Kurt Roberts",
+      "email": "kroberts@rp3agency.com"
+    },
+    {
+      "name": "Bryan Cox",
+      "email": "bcox@rp3agency.com"
+    }
+  ],
+  "copyright": "2014, 2015",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@https://github.com/RP3Agency/rp3-site.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "csswring": "^5.1.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-composer": "^0.4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-git": "^1.11.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.3",
+    "kss": "^2.4.0",
+    "run-sequence": "^1.2.2",
+    "yargs": "^5.0.0"
+  },
+  "dependencies": {
+    "breakpoint-sass": "^2.7.0",
+    "susy": "^2.2.12"
+  }
+}

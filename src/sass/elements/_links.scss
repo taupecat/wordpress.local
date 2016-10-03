@@ -1,0 +1,114 @@
+// Links
+// 
+// `elements/_links.scss`
+// 
+// Inline, text-based links.
+// 
+// .continue - Add a right-facing caret (er, greater than sign) on "continue" type links
+// 
+// Markup:
+// <p>Need to find something? <a href="https://google.com" class="{{modifier_class}}"">Go to Google.</a></p>
+// 
+// Styleguide: Typography.Links
+
+a {
+	color: color( 'blue' );
+	transition: color 100ms linear;
+
+	&:visited {
+		color: color( 'blue' );
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: color( 'magenta' );
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+
+	/** Block-style links */
+	&.block {
+		color: currentColor;
+		display: block;
+		text-decoration: none;
+	}
+}
+
+// .link
+// 
+// `elements/_links.scss`
+// 
+// Make something _look_ like a link, even if it's not really
+// (mostly for "learn more" type copy inside 'blocked' anchors). Notice
+// how in the example, "Need to find something?" is also linked, it just
+// doesn't look like it. This is mostly done for "tile" like interfaces,
+// where you want to make the tap target bigger for touch devices.
+// 
+// Markup:
+// <a href="https://google.com" class="block">
+//     Need to find something? <span class="link">Go go Google.</span>
+// </a>
+// 
+// Styleguide: Typography.Links (Faux)
+
+.link {
+	color: color( 'blue' );
+	text-decoration: underline;
+
+	@include hover-state {
+		color: color( 'magenta' );
+	}
+}
+
+.continue {
+	clear: both;
+	font-weight: $font-weight__medium;
+	margin-bottom: 1em;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	&::after {
+		content: ' >';
+		display: inline;
+	}
+}
+
+/** Call to action */
+.cta a {
+	font-weight: $font-weight__medium;
+	text: {
+		decoration: none;
+		transform: uppercase;
+	}
+	white-space: nowrap;
+
+	&::after {
+		content: '\00A0>';
+		display: inline;
+	}
+}
+
+
+// "View All" links for news & blogs
+.all-news-link {
+	margin: {
+		top: 3em;
+		bottom: 3em;
+	}
+	text-align: center;
+	@include container;
+
+	a {
+		@extend %button;
+		display: inline-block;
+	}
+}

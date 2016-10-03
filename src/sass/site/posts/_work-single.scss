@@ -1,0 +1,267 @@
+.work-single {
+	@extend %max-width;
+
+/* ==========================================================================
+   Introduction
+   ========================================================================== */
+
+	&__introduction {
+		@extend %max-width--padded;
+		margin-bottom: 3rem;
+	}
+
+	&__title {
+		@extend %roboto-thin;
+		font-size: em( 40px );
+		line-height: 1;
+		margin-bottom: 0.25em;
+	}
+
+	&__client {
+		margin-bottom: 2em;
+	}
+
+	&__tagline {
+		font-size: em( 16px );
+	}
+
+
+/* ==========================================================================
+   Full Width Image Panel
+   (essentially the same thing as the full width image on the work landing
+   page, so we'll just extend that class)
+   ========================================================================== */
+
+	&__full {
+		@extend .work__full;
+
+		&--woolly-mammoth {
+			@include aspect-ratio( 2400px, 1690px )
+		}
+	}
+
+
+/* ==========================================================================
+   Half Width Image Panel
+   ========================================================================== */
+
+	&__half {
+		width: 100%;
+		
+		@include breakpoint( bp() ) {
+			display: flex;
+
+			picture {
+				width: 50%;
+			}
+		}
+	}
+
+
+/* ==========================================================================
+   Content Panel
+   ========================================================================== */
+
+	&__content {
+		padding: {
+			top: 4em;
+			bottom: 4em;
+		}
+
+		@include breakpoint( bp() ) {
+			height: rem( 450px );
+			padding: {
+				top: 0;
+				bottom: 0;
+			}
+		}
+
+		&__container {
+			@extend %max-width--padded;
+			height: 100%;
+			margin: {
+				right: auto;
+				left: auto;
+			}
+			max-width: rem( 720px );
+
+			@include breakpoint( bp() ) {
+				position: relative;
+			}
+
+			@include breakpoint( bp( "intermediate" ) ) {
+				padding: {
+					right: 0;
+					left: 0;
+				}
+			}
+		}
+
+		&__inner {
+
+			@include breakpoint( bp() ) {
+				@include centered( "vertical" );
+			}
+		}
+
+		&__headline {
+			@extend %roboto-medium;
+			margin-bottom: 1em;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin: {
+				top: 1em;
+				bottom: 1em;
+			}
+		}
+
+		blockquote {
+			@extend %quote;
+			font-size: em(18px);
+		}
+
+		em {
+			@extend %roboto-normal-italic;
+		}
+	}
+
+
+/* ==========================================================================
+   Video Caption
+   ========================================================================== */
+
+	.video-panel__caption {
+
+		h1 {
+			@extend %roboto-thin;
+			font-size: rem( 30px );
+			margin-bottom: 0;
+
+			@include breakpoint( bp() ) {
+				font-size: rem( 40px );
+			}
+		}
+	}
+
+/* ==========================================================================
+   Six Up Image Panel
+   ========================================================================== */
+
+	&__six-up {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+
+		&__image {
+			height: rem( 120px );
+			overflow: hidden;
+			position: relative;
+			width: 50%;
+
+			@include breakpoint( bp() ) {
+				height: rem( 225px );
+			}
+
+			img {
+				height: 100%;
+				max-width: none;
+				width: auto;
+				@include centered( "horizontal" );
+			}
+		}
+	}
+
+
+/* ==========================================================================
+   Related Work
+   ========================================================================== */
+
+	&__related {
+		background-color: color( 'blue' );
+		color: color( 'black' );
+		font-size: rem( 12px );
+		line-height: 1;
+		padding: 3rem 0 2rem;
+
+		&__container {
+			@extend %max-width;
+
+			&__inner {
+				@extend %max-width--padded;
+			}
+		}
+
+		&__header {
+			margin-bottom: 2em;
+
+			h2 {
+				color: color( 'white' );
+				font-size: em( 32px, 12px );
+			}
+		}
+
+		&__content {
+			display: flex;
+			justify-content: flex-start;
+			overflow-x: scroll;
+			-ms-overflow-style: -ms-autohiding-scrollbar;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		&__item {
+			margin-right: gutter();
+			min-width: ( 320px * 0.8 );
+			overflow: hidden;
+
+			@include breakpoint( bp() ) {
+				min-width: 0;
+				width: span( 8 of 24 );
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+		}
+
+		&__label {
+			background-color: color( 'white' );
+			position: relative;
+
+			@include breakpoint( bp() ) {
+				max-height: rem( 120px );
+			}
+			
+			&::before {
+				content: "";
+				display: block;
+				padding-top: percentage( 3 / 8 ); // 8:3
+				width: 100%;
+			}
+
+			&__content {
+				left: 0;
+				padding: 0 1em;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translate( 0, -50% );
+			}
+		}
+
+		&__title {
+			@extend %roboto-thin;
+			font-size: em( 20px, 12px );
+			line-height: 1;
+			margin-bottom: 0.25em;
+		}
+	}
+}
+
+
+/** Disable the RP3-branded video play button on the NS 360 page */
+
+body.rp3_cpt_work-ns-360 .video-panel__play-button {
+	visibility: hidden;
+}

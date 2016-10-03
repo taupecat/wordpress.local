@@ -1,0 +1,156 @@
+.site-blog__interstitial {
+
+	@include breakpoint( bp() ) {
+		margin-bottom: 3rem;
+	}
+
+	&__outer {
+		background-color: color( 'gray--light' );
+	}
+
+	&__container {
+		@extend %max-width;
+		position: relative;
+
+		@extend %blog-header-fadeout;
+	}
+
+	&__wrapper {
+		background: {
+			color: color( 'gray--light' );
+			image: url("../images/interstitial-blog.jpg");
+			position: center;
+		}
+		padding: {
+			top: 2em;
+			bottom: 2em;
+		}
+
+		@include breakpoint( $hidpi ) {
+			background: {
+				image: url("../images/interstitial-blog@2x.jpg");
+				size: 1200px auto;
+			}
+		}
+	}
+
+	&__inner {
+		@extend %max-width--blog;
+		background-color: transparentize( color( 'white' ), 0.3 );
+		padding: 1em;
+	}
+
+	p {
+		margin: 0 0 1em;
+	}
+
+	a {
+		font-weight: $font-weight__bold;
+	}
+
+	/** Subscription Form */
+
+	label {
+
+		span {
+			display: inline-block;
+			float: left;
+			height: 0;
+			overflow: hidden;
+			text-indent: 100%;
+			white-space: nowrap;
+			width: 0;
+		}
+	}
+
+	form {
+		display: table;
+		width: 100%;
+	}
+
+	.form-row {
+		display: table-row;
+	}
+
+	.form-cell {
+		display: table-cell;
+
+		&.subscribe-label {
+			max-width: 40px;
+		}
+
+		&.submit-button {
+			vertical-align: bottom;
+			width: 92px;
+		}
+
+		&.block-mobile {
+			display: block;
+
+			@include breakpoint( bp() ) {
+				display: table-cell;
+			}
+		}
+
+		&:first-of-type {
+			padding-right: 1em;
+			width: 100%;
+		}
+	}
+
+	input[type="email"] {
+		@extend %roboto-normal;
+		font-size: 1rem;
+		line-height: 1rem;
+		margin: 0;
+		padding: em(10px) em(10px) em(9px);
+		vertical-align: baseline;
+		width: 100%;
+		@include appearance(none);
+	}
+}
+
+/** Subscription Modal */
+.blog__subscribe__modal {
+	background-color: transparentize( color( 'black' ), 0.5 );
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	z-index: 100;
+	top: 0;
+}
+
+.blog-subscription-modal {
+	background-color: color( 'white' );
+	left: 50%;
+	padding: 2em;
+	position: absolute;
+	top: 50%;
+	transform: translate( -50%, -50% );
+	box-shadow: 0 0 10px 5px transparentize( color( 'black' ), 0.8 );
+}
+
+.blog-subscription-modal__close {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	text-indent: 200%;
+	white-space: nowrap;
+
+	&::before {
+		font-family: Genericons;
+		content: '\f406';
+		display: block;
+		text-indent: 0;
+		color: color( 'black' );
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

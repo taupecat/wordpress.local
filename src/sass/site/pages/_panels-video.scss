@@ -1,0 +1,83 @@
+.video-panel {
+
+	&__image {
+		@include aspect-ratio( 1600px, 900px );
+
+		@include hover-state {
+
+			.video-panel__play-button rect {
+				fill: transparentize( color( 'black' ), 0.2 );
+			}
+		}
+	}
+
+	&__play-button {
+		height: 50px;
+		width: 50px;
+		@include centered( "both" );
+
+		@include breakpoint( bp() ) {
+			height: 100px;
+			width: 100px;
+		}
+
+		polygon {
+			fill: color( 'blue' );
+		}
+
+		rect {
+			fill: transparentize( color( 'white' ), 0.2 );
+			transition: fill 100ms linear;
+		}
+	}
+
+	// Trigger
+	&__trigger {
+		clear: both;
+		position: relative;
+	}
+
+
+	// Modal
+	&__modal {
+		left: 0;
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		transition: opacity 200ms linear;
+		visibility: hidden;
+		width: 100%;
+		z-index: 1;
+
+		&.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		iframe {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__caption {
+		padding: {
+			top: 2em;
+			bottom: 6em;
+		}
+
+		&__container {
+			@extend %max-width--padded;
+			height: 100%;
+			margin: {
+				right: auto;
+				left: auto;
+			}
+			max-width: rem( 720px );
+
+			p {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
